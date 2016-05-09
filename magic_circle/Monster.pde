@@ -1,18 +1,19 @@
 class Monster{
   PVector position;
-  int weakness; 
+  Element weakness; 
+  Element resistance;
   int speed;
   int type;
-  Monster(int type, float x, float y, int weakness, int speed){
+  Monster(int type, float x, float y, Element weakness, Element resistance, int speed){
     position = new PVector(x, y);
     this.weakness = weakness;
+    this.resistance = resistance;
     this.speed = speed;
     this.type = type;
   }
   
   void update(){
     position.x += speed; 
-    display();
   }
   
   void display(){
