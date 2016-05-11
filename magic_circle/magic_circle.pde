@@ -21,7 +21,6 @@ void draw(){
   background(255, 255, 255);
   
   player.update();
-  player.display();
   
   for(int i=0; i<spells.size(); i++){
     spells.get(i).update();
@@ -29,7 +28,6 @@ void draw(){
   
   for(int i=0; i<monsters.size(); i++){
     monsters.get(i).update();
-    monsters.get(i).display();
   }
 }
 
@@ -37,5 +35,9 @@ void keyPressed(){
   if(key == 'w'){
     spells.add(new Spell(Element.LIGHT, 10, player.position, 4));
     print("Light");
+  }
+  else if(key == 'd'){
+    spells.add(new Spell(Element.DARK, 10, player.position, 4));
+    print("Dark");
   }
 }

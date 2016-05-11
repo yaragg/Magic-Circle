@@ -8,6 +8,7 @@ class Player{
   }
   
   void update(){
+    display();
   }
   
   void display(){

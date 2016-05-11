@@ -3,12 +3,19 @@ class Spell{
   int radius;
   PVector position;
   int speed;
+  color c;
   
   Spell(Element type, int radius, PVector position, int speed){
     this.type = type;
     this.radius = radius;
     this.position = position.copy();
     this.speed = speed;
+    if(type == Element.LIGHT){
+      c = color(255, 245, 184);
+    }
+    else if(type == Element.DARK){
+      c = color(0, 0, 0);
+    }
   }
   
   void update(){
@@ -18,7 +25,7 @@ class Spell{
   }
   
   void display(){
-    fill(255, 245, 184);
+    fill(c);
     ellipse(position.x, position.y, radius, radius);
   }
   
@@ -28,6 +35,7 @@ class Spell{
       if(isAHit(monster)){
         print("Hit");
         spells.remove(this);
+        monster.damage(this);
       }
     }
   }
