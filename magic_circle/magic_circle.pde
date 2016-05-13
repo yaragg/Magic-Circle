@@ -85,5 +85,4 @@ void generateMonster(){
       break;
     }
   }
-  
 }
