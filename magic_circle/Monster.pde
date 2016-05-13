@@ -2,11 +2,11 @@ class Monster{
   PVector position;
   Element weakness; 
   Element resistance;
-  int speed;
+  float speed;
   int type;
   int radius;
   int health;
-  Monster(int type, float x, float y, Element weakness, Element resistance, int speed){
+  Monster(int type, float x, float y, Element weakness, Element resistance, float speed){
     position = new PVector(x, y);
     this.weakness = weakness;
     this.resistance = resistance;
@@ -17,6 +17,7 @@ class Monster{
   }
   
   void update(){
+    if(position.x>=715) gameover = true;
     position.x += speed; 
     display();
   }
