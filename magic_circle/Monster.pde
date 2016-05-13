@@ -17,6 +17,7 @@ class Monster{
   }
   
   void update(){
+    if(position.x>=715) gameover = true;
     position.x += speed; 
     display();
   }

@@ -1,15 +1,19 @@
 PImage eyeball_image;
-PImage monster_images[] = new PImage[1];
+PImage monster_images[] = new PImage[3];
 Monster eyeball;
 Player player;
 ArrayList<Spell> spells;
 ArrayList<Monster> monsters;
 int score = 0;
+boolean gameover = false;
 
 void setup(){
   size(800, 600);
   imageMode(CENTER);
+  textAlign(CENTER, CENTER);
   monster_images[0] = loadImage("eyeball.png");
+  monster_images[1] = loadImage("spider.png");
+  monster_images[2] = loadImage("wasp.png");
   player = new Player();
   
   spells = new ArrayList<Spell>();
@@ -19,7 +23,14 @@ void setup(){
 
 
 void draw(){
+  if(gameover){
+    fill(255, 0, 0);
+    textSize(48);
+    text("Game over", width/2, height/2);
+    return;
+  }
   background(255, 255, 255);
+  stroke(0, 0, 0);
   
   player.update();
   
@@ -30,6 +41,15 @@ void draw(){
   for(int i=0; i<monsters.size(); i++){
     monsters.get(i).update();
   }
+  fill(0, 0, 0);
+  textSize(24);
+  text(score, 15, 15);
+  
+  stroke(255, 0, 0);
+  strokeWeight(3);
+  line(715, 0, 715, 600);
+  
+  if(random(1)<0.01) generateMonster();
 }
 
 void keyPressed(){
@@ -45,4 +65,9 @@ void keyPressed(){
     spells.add(new Spell(Element.FIRE, 10, player.position, 4));
     print("Fire");
   }
+}
+
+void generateMonster(){
+  //generate type
+  monsters.add(new Monster(0, 10, height/2, Element.LIGHT, Element.DARK, 3));
 }
