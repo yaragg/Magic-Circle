@@ -34,6 +34,9 @@ class Monster{
       this.health -= dam;
     }
     
-    if(this.health <= 0) monsters.remove(this);
+    if(this.health <= 0) {
+      score += 3;
+      monsters.remove(this);
+    }
   }
 }

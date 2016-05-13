@@ -16,6 +16,9 @@ class Spell{
     else if(type == Element.DARK){
       c = color(0, 0, 0);
     }
+    else if(type == Element.FIRE){
+      c = color(255, 0, 0);
+    }
   }
   
   void update(){

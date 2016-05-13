@@ -4,6 +4,7 @@ Monster eyeball;
 Player player;
 ArrayList<Spell> spells;
 ArrayList<Monster> monsters;
+int score = 0;
 
 void setup(){
   size(800, 600);
@@ -39,5 +40,9 @@ void keyPressed(){
   else if(key == 'd'){
     spells.add(new Spell(Element.DARK, 10, player.position, 4));
     print("Dark");
+  }
+  else if(key == 'f'){
+    spells.add(new Spell(Element.FIRE, 10, player.position, 4));
+    print("Fire");
   }
 }
