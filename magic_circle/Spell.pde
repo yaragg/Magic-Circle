@@ -19,6 +19,16 @@ class Spell{
     else if(type == Element.FIRE){
       c = color(255, 0, 0);
     }
+    else if(type == Element.WATER){
+      c = color(55, 124, 255);
+    }
+    else if(type == Element.WIND){
+      c = color(120, 242, 214);
+    }
+    else if(type == Element.EARTH){
+      c = color(100, 76, 37);
+    }
+    
   }
   
   void update(){

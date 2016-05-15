@@ -14,6 +14,7 @@ ArrayList<Monster> monsters;
 int score = 0;
 boolean gameover = false;
 int middle = 0, middlePrevious = 0;
+boolean shift = false;
 
 void setup(){
   size(800, 600);
@@ -85,17 +86,47 @@ void draw(){
 }
 
 void keyPressed(){
+  if(keyCode==SHIFT){
+    shift = true;
+    print("SHIFTPRESS");
+  }
   if(key == 'w'){
-    spells.add(new Spell(Element.LIGHT, 10, player.position, 4));
+    if(shift) barrier_type = Element.LIGHT;
+    else spells.add(new Spell(Element.LIGHT, 10, player.position, 4));
+   // barrier_type = Element.LIGHT;
     print("Light");
   }
   else if(key == 'd'){
-    spells.add(new Spell(Element.DARK, 10, player.position, 4));
+    if(shift) barrier_type = Element.DARK;
+    else spells.add(new Spell(Element.DARK, 10, player.position, 4));
     print("Dark");
   }
   else if(key == 'f'){
-    spells.add(new Spell(Element.FIRE, 10, player.position, 4));
+    if(shift) barrier_type = Element.FIRE;
+    else spells.add(new Spell(Element.FIRE, 10, player.position, 4));
     print("Fire");
+  }
+  else if(key == 'a'){
+    if(shift) barrier_type = Element.WATER;
+    else spells.add(new Spell(Element.WATER, 10, player.position, 4));
+    print("Water");
+  }
+  else if(key == 'q'){
+    if(shift) barrier_type = Element.WIND;
+    else spells.add(new Spell(Element.WIND, 10, player.position, 4));
+    print("Wind");
+  }
+  else if(key == 's'){
+    if(shift) barrier_type = Element.EARTH;
+    else spells.add(new Spell(Element.EARTH, 10, player.position, 4));
+    print("Earth");
+  }
+}
+
+void keyReleased(){
+  if(keyCode==SHIFT){
+    shift = false;
+    print("SHIFTRELEASE");
   }
 }
 
