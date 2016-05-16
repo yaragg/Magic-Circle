@@ -1,5 +1,5 @@
 # Magic Circle
-An Arduino and Processing-based game with capacitive sensing.
+An Arduino and Processing-based game with capacitive sensing. View demo video [here!](https://youtu.be/wMd1DkyBjlk)
 
 ##Credits
 [Eyeball](http://opengameart.org/content/3x-updated-32x32-scifi-roguelike-enemies) by [Stephen Challener (Redshrike)](http://opengameart.org/users/redshrike), available under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
